@@ -1,6 +1,7 @@
 package com.gj.routine.lt;
 
 import java.util.Scanner;
+import java.util.Stack;
 
 /**
  * @title: 有效的括号
@@ -19,9 +20,26 @@ import java.util.Scanner;
  */
 public class lt_20 {
 
-    public boolean isValid(String s){
-        //代码编写
-        return true;
+    public boolean isValid(String s) {
+        if(s.isEmpty()){
+            return true;
+        }
+        Stack<Character> stack=new Stack<>();
+        char[] chars=s.toCharArray();
+        for(char c:chars){
+            if(c=='(')
+                stack.push(')');
+            else if(c=='{')
+                stack.push('}');
+            else if(c=='[')
+                stack.push(']');
+            else if (stack.empty()||c!=stack.pop())
+                return false;
+        }
+        if(stack.empty())
+            return true;
+        else
+            return false;
     }
 
     public static void main(String[] args) {
