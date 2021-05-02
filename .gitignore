@@ -1,0 +1,22 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+/codeStyles/
+.DS_Store
+.idea/
+jz/jz.iml
+lt/.DS_Store
+lt/lt.iml
+lt/src/.DS_Store
+lt/src/main/.DS_Store
+lt/src/main/java/.DS_Store
+lt/src/main/java/com/.DS_Store
+lt/src/main/java/com/gj/.DS_Store
+lt/src/main/java/com/gj/routine/.DS_Store
+lt/target/classes/com/gj/routine/lt/*.class
+routine.iml
