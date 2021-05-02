@@ -7,4 +7,7 @@ package com.gj.routine.lt;
  * @date: 2021/5/1
  */
 public class lt_21 {
+    public static void main(String[] args) {
+
+    }
 }
