@@ -12,6 +12,7 @@ package com.gj.routine.lt;
  * @date: 2021/5/17
  */
 public class lt_34 {
+
     public int[] searchRange(int[] nums,int target){
         if (nums == null || nums.length == 0) return new int[]{-1,-1};
         if (nums[0]>target || nums[nums.length-1]<target)
@@ -23,6 +24,18 @@ public class lt_34 {
         }
         return new int[]{-1,-1};
     }
+
+    /**
+     * 左边界理解成找小于等于target；右边界理解成找大于target的数字，小于该数字的数字即为所求
+     * @param nums
+     * @param target
+     * @param flag
+     * @return
+     *
+     * 我们定义 binarySearch(nums, target, lower) 表示在nums 数组中二分查找 target 的位置，如果 lower 为 true，
+     * 则查找第一个大于等于 target 的下标，否则查找第一个大于 target 的下标。
+     *
+     */
     public int searchIndex(int[] nums,int target,boolean flag){
         int left = 0,right = nums.length-1,ans = nums.length;
         while (left<=right){
