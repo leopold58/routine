@@ -38,7 +38,7 @@ public class lt_44 {
                 if (p.charAt(i - 1) == s.charAt(j - 1) || p.charAt(i - 1) == '?') {
                     dp[i][j] = dp[i - 1][j - 1];
                 } else if (p.charAt(i - 1) == '*') {
-                    dp[i][j] = dp[i - 1][j] | dp[i][j - 1];
+                    dp[i][j] = dp[i - 1][j] || dp[i][j - 1];
                 }
             }
         }
