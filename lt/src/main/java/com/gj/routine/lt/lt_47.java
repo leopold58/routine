@@ -20,6 +20,29 @@ public class lt_47 {
             return output;
         }
         Arrays.sort(nums);
+        int len = nums.length;
+        boolean[] used = new boolean[len];
+        Deque<Integer> path = new ArrayDeque<>(len);
+        dfs(output,path,used,0,len,nums);
+        return output;
+    }
+    private void dfs(List<List<Integer>> output,Deque<Integer> path,boolean[] used,int start,int len,int[] nums){
+        if (start == len){
+            output.add(new ArrayList<>(path));
+            return;
+        }
+        for (int i = 0; i < len; i++) {
+            if (used[i])
+                continue;
+            if (i > 0 && nums[i] == nums[i-1] && !used[i-1]){
+                continue;
+            }
+            path.addLast(nums[i]);
+            used[i] = true;
+            dfs(output,path,used,start+1,len,nums);
+            used[i] = false;
+            path.removeLast();
+        }
     }
 
 
