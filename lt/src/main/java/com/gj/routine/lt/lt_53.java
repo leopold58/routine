@@ -27,13 +27,26 @@ import java.util.Scanner;
 public class lt_53 {
 
     //贪心
+//    public int maxSubArray(int[] nums) {
+//        int pre = 0, maxAns = nums[0];
+//        for (int x : nums) {
+//            pre = Math.max(pre + x, x);
+//            maxAns = Math.max(maxAns, pre);
+//        }
+//        return maxAns;
+//    }
+
+    //动态规划
     public int maxSubArray(int[] nums) {
-        int pre = 0, maxAns = nums[0];
-        for (int x : nums) {
-            pre = Math.max(pre + x, x);
-            maxAns = Math.max(maxAns, pre);
+        int len = nums.length;
+        int ans = nums[0];
+        for (int i = 1; i < len; i++) {
+            if (nums[i-1]>0){
+                nums[i] += nums[i-1];
+            }
+            ans = Math.max(nums[i],ans);
         }
-        return maxAns;
+        return ans;
     }
 
     public static void main(String[] args) {
