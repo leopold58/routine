@@ -21,6 +21,7 @@ package com.gj.routine.lt;
  */
 public class lt_79 {
 
+    //回溯+多方向遍历
     public boolean exist(char[][] board, String word) {
         int rows = board.length,cols = board[0].length;
         boolean[][] visited = new boolean[rows][cols];
@@ -68,7 +69,7 @@ public class lt_79 {
         char[][] board = {
                 {'A','B','C','E'},
                 {'S','F','C','S'},
-                {'A','B','E','E'}
+                {'A','D','E','E'}
         };
         String word = "ABCCED";
         lt_79 solution = new lt_79();
