@@ -18,26 +18,46 @@ import java.util.HashMap;
 public class lt_36 {
 
     //一次遍历，建立多个哈希数组，用空间来换时间。
+//    public boolean isValidSudoku(char[][] board){
+//        if (board == null || board.length == 0)return false;
+//        HashMap<Integer,Integer> [] rows = new HashMap[9];
+//        HashMap<Integer,Integer> [] cols = new HashMap[9];
+//        HashMap<Integer,Integer> [] boxes = new HashMap[9];
+//        for (int i = 0; i < 9; i++) {
+//            rows[i] = new HashMap<Integer,Integer>();
+//            cols[i] = new HashMap<Integer,Integer>();
+//            boxes[i] = new HashMap<Integer,Integer>();
+//        }
+//        //遍历
+//        for (int i = 0; i < 9; i++) {
+//            for (int j = 0; j < 9; j++) {
+//                if (board[i][j]!='.'){
+//                    int num = (int)board[i][j];
+//                    int boxIndex = (i/3)*3+j/3;    //关键想清楚这个式子
+//                    rows[i].put(num,rows[i].getOrDefault(num,0)+1);
+//                    cols[j].put(num,cols[j].getOrDefault(num,0)+1);
+//                    boxes[boxIndex].put(num,boxes[boxIndex].getOrDefault(num,0)+1);
+//                    if (rows[i].get(num)>1 ||cols[j].get(num)>1 || boxes[boxIndex].get(num)>1){
+//                        return false;
+//                    }
+//                }
+//            }
+//        }
+//        return true;
+//    }
     public boolean isValidSudoku(char[][] board){
-        if (board == null || board.length == 0)return false;
-        HashMap<Integer,Integer> [] rows = new HashMap[9];
-        HashMap<Integer,Integer> [] cols = new HashMap[9];
-        HashMap<Integer,Integer> [] boxes = new HashMap[9];
-        for (int i = 0; i < 9; i++) {
-            rows[i] = new HashMap<Integer,Integer>();
-            cols[i] = new HashMap<Integer,Integer>();
-            boxes[i] = new HashMap<Integer,Integer>();
-        }
-        //遍历
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                if (board[i][j]!='.'){
-                    int num = (int)board[i][j];
-                    int boxIndex = (i/3)*3+j/3;    //关键想清楚这个式子
-                    rows[i].put(num,rows[i].getOrDefault(num,0)+1);
-                    cols[j].put(num,cols[j].getOrDefault(num,0)+1);
-                    boxes[boxIndex].put(num,boxes[boxIndex].getOrDefault(num,0)+1);
-                    if (rows[i].get(num)>1 ||cols[j].get(num)>1 || boxes[boxIndex].get(num)>1){
+        int[][] rows = new int[9][9];
+        int[][] columns = new int[9][9];
+        int[][][] subboxes = new int[3][3][9];
+        for (int i =0;i<9;i++){
+            for (int j=0; j<9;j++){
+                char c = board[i][j];
+                if (c != '.'){
+                    int n = c - '1';
+                    rows[i][n]++;
+                    columns[j][n]++;
+                    subboxes[i/3][j/3][n]++;
+                    if (rows[i][n] >1 || columns[j][n]>1 || subboxes[i/3][j/3][n]>1){
                         return false;
                     }
                 }
