@@ -10,7 +10,7 @@ public class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
-    TreeNode(int i){}
+    TreeNode(int i){this.val = i;}
     TreeNode(int val,TreeNode left,TreeNode right){
         this.val = val;
         this.left = left;
